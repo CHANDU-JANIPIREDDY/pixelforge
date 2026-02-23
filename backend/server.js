@@ -44,24 +44,15 @@ connectDB();
 app.use(helmet());
 
 // CORS configuration - Production
-const allowedOrigins = process.env.NODE_ENV === 'production'
-  ? ['https://pixelforge-silk.vercel.app']
-  : ['http://localhost:5173'];
+app.use(cors({
+  origin: 'https://pixelforge-silk.vercel.app',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-  })
-);
+// Preflight requests for all routes
+app.options('*', cors());
 
 // Rate limiting
 const limiter = rateLimit({
