@@ -397,8 +397,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 For questions, support, or contributions:
 
-- **GitHub Issues:** [Open an issue](https://github.com/YOUR_USERNAME/pixelforge-nexus/issues)
-- **Email:** your-email@example.com
+- **GitHub Issues:** [Open an issue](https://github.com/CHANDU-JANIPIREDDY)
+- **Email:** cjanipireddy@gmail.com
 
 ---
 
