@@ -34,18 +34,21 @@ connectDB();
 
 app.use(helmet());
 
-const allowedOrigins = [
-  'http://localhost:3000',
-  'http://localhost:5173',
-  'https://pixelforge-silk.vercel.app',
-];
-
 app.use(
   cors({
-    origin: (origin, callback) => {
+    origin: function (origin, callback) {
       if (!origin) return callback(null, true);
 
-      if (allowedOrigins.includes(origin)) {
+      const allowedLocal = [
+        'http://localhost:3000',
+        'http://localhost:5173',
+      ];
+
+      if (allowedLocal.includes(origin)) {
+        return callback(null, true);
+      }
+
+      if (origin.endsWith('.vercel.app')) {
         return callback(null, true);
       }
 
