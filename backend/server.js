@@ -43,9 +43,9 @@ connectDB();
 // Security middleware
 app.use(helmet());
 
-// CORS configuration
-const allowedOrigins = process.env.CORS_ORIGIN
-  ? [process.env.CORS_ORIGIN]
+// CORS configuration - Production
+const allowedOrigins = process.env.NODE_ENV === 'production'
+  ? ['https://pixelforge-silk.vercel.app']
   : ['http://localhost:5173'];
 
 app.use(
