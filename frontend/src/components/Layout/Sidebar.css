@@ -1,0 +1,256 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background-color: var(--color-bg-secondary);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text-primary);
+  font-weight: 600;
+  font-size: 1.125rem;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: var(--color-text-primary);
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+  color: white;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebar-close {
+  display: none;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin: 0.25rem 0.5rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-md);
+  transition: all 0.15s ease;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+}
+
+.nav-link.active {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.nav-link.active:hover {
+  background-color: var(--color-primary-hover);
+  color: white;
+}
+
+.nav-icon {
+  font-size: 1.125rem;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.nav-text {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  overflow: hidden;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ef4444;
+  background: transparent;
+  border-radius: var(--radius-md);
+  color: #ef4444;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 0.25rem;
+}
+
+.logout-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.logout-icon {
+  font-size: 1rem;
+}
+
+.logout-text {
+  white-space: nowrap;
+}
+
+/* Mobile - 768px */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 280px;
+  }
+
+  .sidebar-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-close {
+    display: flex;
+  }
+
+  .logo-text {
+    font-size: 0.875rem;
+  }
+}
+
+/* Small Mobile - 576px */
+@media (max-width: 576px) {
+  .sidebar-header {
+    padding: 1rem;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+
+  .sidebar-footer {
+    padding: 0.75rem;
+  }
+
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.75rem;
+  }
+
+  .user-name {
+    font-size: 0.8125rem;
+  }
+
+  .user-role {
+    font-size: 0.6875rem;
+  }
+}

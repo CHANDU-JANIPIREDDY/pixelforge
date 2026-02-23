@@ -1,0 +1,35 @@
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-tertiary) 100%);
+  padding: 1rem;
+}
+
+.not-found-content {
+  text-align: center;
+  max-width: 400px;
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 700;
+  color: var(--color-border);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.error-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
