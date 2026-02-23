@@ -66,8 +66,19 @@ app.use(
   })
 );
 
-// Preflight requests for all routes
-app.options('*', cors());
+// Express 5 compatible preflight handler (replaces app.options('*', cors()))
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://pixelforge-silk.vercel.app');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+
+  next();
+});
 
 // Rate limiting
 const limiter = rateLimit({
